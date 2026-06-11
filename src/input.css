@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+main {
+  background-color: #e4f4fd;
+  height: 100vh;
+}
+main div.container {
+  display: flex;
+  flex-direction: column;
+}
+main div.container .calculator {
+  background-color: #fff;
+  padding: 32px 24px;
+}
+main div.container .calculator .heading {
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 500px) {
+  main div.container .calculator .heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+}
+main div.container .calculator .heading h1 {
+  font-size: 24px;
+  color: #133041;
+}
+main div.container .calculator .heading button.clear {
+  color: #4e6e7e;
+  border: none;
+  background-color: #fff;
+  text-decoration: underline;
+}
+main div.container .calculator form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+main div.container .calculator form span {
+  background-color: #e4f4fd;
+  padding: 12.5px 16px;
+  border-radius: 0 4px 4px 0;
+  border: 1px solid #6b94a8;
+  border-left: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4e6e7e;
+}
+main div.container .calculator form .currency {
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+  border-left: 1px solid #6b94a8;
+}
+main div.container .output {
+  background-color: #133041;
+  padding: 32px 24px;
+}/*# sourceMappingURL=input.css.map */
