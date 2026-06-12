@@ -19,10 +19,7 @@ $font: "Plus Jakarta Sans", sans-serif;
 
 @mixin spanBox {
   background-color: $background;
-  padding: 12.5px 16px;
-  border-radius: 0 4px 4px 0;
-  border: 1px solid $spanBox;
-  border-left: none;
+  padding: 11.8px 16px;
   font-size: 18px;
   font-weight: bold;
   color: $thinTextColor;
@@ -50,12 +47,18 @@ main {
         h1 {
           font-size: 24px;
           color: $darkBlue;
+          margin-bottom: 8px;
         }
         button.clear {
           color: $thinTextColor;
           border: none;
           background-color: $white;
           text-decoration: underline;
+          cursor: pointer;
+
+          &:hover {
+            color: $darkBlue;
+          }
         }
       }
 
@@ -64,13 +67,49 @@ main {
         flex-direction: column;
         gap: 24px;
 
-        span{
-            @include spanBox
+        .wrapper span,
+        .currency {
+          @include spanBox;
         }
-        .currency{
-            border-radius: 4px 0 0 4px;
-            border-right: none;
-            border-left: 1px solid $spanBox;
+
+        .input_wrapper {
+          border: 1px solid $spanBox;
+          border-radius: 2.5px;
+
+          &:hover {
+            border: 1px solid $darkBlue;
+          }
+        }
+
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .input_wrapper {
+          display: flex;
+
+          input {
+            height: 48px;
+            border: none;
+            width: 100%;
+            padding-left: 16px;
+            color: $darkBlue;
+            font-weight: bold;
+
+            &:focus {
+              border: 1px solid $green;
+              outline: none;
+            }
+          }
+        }
+
+        .mortgage_container label,
+        .wrapper label,
+        #morgage_type_text {
+          color: $thinTextColor;
+          margin-bottom: 12px;
+          display: inline-block;
         }
       }
     }

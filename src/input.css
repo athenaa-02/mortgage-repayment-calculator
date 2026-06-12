@@ -31,32 +31,64 @@ main div.container .calculator .heading {
 main div.container .calculator .heading h1 {
   font-size: 24px;
   color: #133041;
+  margin-bottom: 8px;
 }
 main div.container .calculator .heading button.clear {
   color: #4e6e7e;
   border: none;
   background-color: #fff;
   text-decoration: underline;
+  cursor: pointer;
+}
+main div.container .calculator .heading button.clear:hover {
+  color: #133041;
 }
 main div.container .calculator form {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-main div.container .calculator form span {
+main div.container .calculator form .wrapper span,
+main div.container .calculator form .currency {
   background-color: #e4f4fd;
-  padding: 12.5px 16px;
-  border-radius: 0 4px 4px 0;
-  border: 1px solid #6b94a8;
-  border-left: none;
+  padding: 11.8px 16px;
   font-size: 18px;
   font-weight: bold;
   color: #4e6e7e;
 }
-main div.container .calculator form .currency {
-  border-radius: 4px 0 0 4px;
-  border-right: none;
-  border-left: 1px solid #6b94a8;
+main div.container .calculator form .input_wrapper {
+  border: 1px solid #6b94a8;
+  border-radius: 2.5px;
+}
+main div.container .calculator form .input_wrapper:hover {
+  border: 1px solid #133041;
+}
+main div.container .calculator form .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+main div.container .calculator form .input_wrapper {
+  display: flex;
+}
+main div.container .calculator form .input_wrapper input {
+  height: 48px;
+  border: none;
+  width: 100%;
+  padding-left: 16px;
+  color: #133041;
+  font-weight: bold;
+}
+main div.container .calculator form .input_wrapper input:focus {
+  border: 1px solid #d8db2f;
+  outline: none;
+}
+main div.container .calculator form .mortgage_container label,
+main div.container .calculator form .wrapper label,
+main div.container .calculator form #morgage_type_text {
+  color: #4e6e7e;
+  margin-bottom: 12px;
+  display: inline-block;
 }
 main div.container .output {
   background-color: #133041;
