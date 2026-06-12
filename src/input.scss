@@ -9,6 +9,8 @@ $lightYellow: #f9fae0;
 $darkBlue: #133041;
 $resultsBg: #0e2431;
 $font: "Plus Jakarta Sans", sans-serif;
+$paragraphColor: #9abed5;
+$opacityPColor: #9abed540;
 
 * {
   margin: 0;
@@ -27,15 +29,43 @@ $font: "Plus Jakarta Sans", sans-serif;
 
 main {
   background-color: $background;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
 
+  @media screen and (min-width: 768px) {
+    padding: 40px 0;
+  }
+    @media screen and (min-width: 1100px) {
+    height: 100vh;
+    padding: 0;
+    align-items: center;
+  }
   div.container {
     display: flex;
     flex-direction: column;
+    max-width: 688px;
+
+    @media screen and (min-width: 768px) {
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    @media screen and (min-width: 1100px) {
+      flex-direction: row;
+      width: 1008px;
+      max-width: fit-content;
+      background-color: $white;
+    }
 
     .calculator {
       background-color: $white;
       padding: 32px 24px;
+
+      @media screen and (min-width: 768px) {
+        padding: 40px;
+      }
+      @media screen and (min-width: 1100px) {
+        width: 50%;
+      }
 
       .heading {
         margin-bottom: 24px;
@@ -85,7 +115,17 @@ main {
           display: flex;
           flex-direction: column;
           gap: 24px;
+
+          @media screen and (min-width: 768px) {
+            flex-direction: row;
+          }
         }
+
+        .rate_container,
+        .term_container {
+          width: 100%;
+        }
+
         .input_wrapper {
           display: flex;
 
@@ -147,25 +187,135 @@ main {
             height: 19.5px;
             border: 1px solid $green;
             border-radius: 50%;
+          }
+          input[name="type"]::before {
+            content: "";
+            height: 10px;
+            width: 10px;
+            background-color: $green;
+            border-radius: 50%;
+            display: none;
+          }
+          input[name="type"]:checked::before {
+            display: inline-block;
+          }
+        }
 
-          }
-          input[name="type"]::before{
-             content: '';
-             height: 10px;
-             width: 10px;
-             background-color: $green;
-             border-radius: 50%;
-             display: none;
-          }
-          input[name="type"]:checked::before{
-             display: inline-block;
-          }
+        button.calc {
+          width: 327px;
+          height: 56px;
+          background-color: $green;
+          border-radius: 999px;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15.75px;
+          color: $darkBlue;
+          font-weight: bold;
+          font-size: 18px;
         }
       }
     }
     .output {
       background-color: $darkBlue;
       padding: 32px 24px;
+
+      @media screen and (min-width: 1100px) {
+        width: 50%;
+        border-bottom-left-radius: 80px;
+        display: flex;
+        justify-content: center;
+
+      }
+
+      @media screen and (min-width: 768px) {
+        padding: 40px;
+      }
+      //primary box
+      .primary {
+        display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        .child {
+          text-align: center;
+          display: none;
+
+          h2 {
+            color: white;
+            margin: 16px 0;
+          }
+          p.complete {
+            color: $paragraphColor;
+          }
+        }
+      }
+      //result box
+      .results {
+        // display: none;
+        div.text {
+          margin-bottom: 24px;
+
+          @media screen and (min-width: 1100px) {
+            margin-bottom: 40px;
+          }
+          h2 {
+            color: $white;
+            margin-bottom: 16px;
+          }
+          p.result_text {
+            color: $paragraphColor;
+            line-height: 150%;
+          }
+        }
+        div.result_output {
+          background-color: $resultsBg;
+          border-radius: 8px;
+          border-top: 4px solid $green;
+          padding: 24px 16px;
+
+          @media screen and (min-width: 768px) {
+            padding: 40px;
+          }
+          @media screen and (min-width: 1100px) {
+            padding: 32px;
+          }
+
+          h3 {
+            color: $paragraphColor;
+            font-weight: 500;
+            margin-bottom: 8px;
+          }
+
+          .monthly_repayments {
+            border-bottom: 1px solid $opacityPColor;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+
+            @media screen and (min-width: 768px) {
+              padding-bottom: 32px;
+              margin-bottom: 32px;
+            }
+
+            span#monthly_sum {
+              color: $green;
+              font-size: 40px;
+              font-weight: bold;
+
+              @media screen and (min-width: 768px) {
+                font-size: 56px;
+              }
+            }
+          }
+
+          span#total_sum {
+            color: $white;
+            font-size: 24px;
+            font-weight: bold;
+          }
+        }
+      }
     }
   }
 }
