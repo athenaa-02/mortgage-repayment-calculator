@@ -202,6 +202,9 @@ main div.container .calculator form button.calc {
 main div.container .calculator form button.calc:hover {
   background-color: rgba(215, 218, 47, 0.5019607843);
 }
+main div.container .calculator form button.calc:hover {
+  background-color: rgba(215, 218, 47, 0.5019607843);
+}
 main div.container .output {
   background-color: #133041;
   padding: 32px 24px;
