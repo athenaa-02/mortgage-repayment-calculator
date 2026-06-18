@@ -86,6 +86,8 @@ function calculateMortgage(e: Event) {
   console.log(pounds.format(monthlyPayment))
   console.log(pounds.format(totalPayment))
 
+  primaryChild.classList.add('hidden')
+resultHtml.classList.remove('hidden')
 }
 
 form.addEventListener("submit", calculateMortgage);
