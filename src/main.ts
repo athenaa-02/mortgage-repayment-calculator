@@ -39,13 +39,15 @@ function getFormData(): MortgageInputs | null {
 
   if (isNaN(mortgage)) {
     hasError = true;
-    
+    mortgageInput.parentElement?.classList.add('error')
   }
   if (isNaN(term)) {
     hasError = true;
+    termInput.parentElement?.classList.add('error')
   }
   if (isNaN(rate)) {
     hasError = true;
+    rateInput.parentElement?.classList.add('error')
   }
 
 if(hasError === true){

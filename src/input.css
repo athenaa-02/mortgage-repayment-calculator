@@ -313,7 +313,21 @@ label:has(input[name=type]:checked) {
   color: #D73328;
   font-size: 14px;
   font-weight: 500;
-  margin-top: 12px;
+  margin-top: 8px;
   visibility: hidden;
   display: inline-block;
+  margin-bottom: 10px;
+}
+
+.error span {
+  background-color: #D73328 !important;
+  color: #fff !important;
+}
+
+.error input[type=text] {
+  border: 1px solid #D73328 !important;
+}
+
+.error ~ span.error_message {
+  visibility: visible;
 }/*# sourceMappingURL=input.css.map */
