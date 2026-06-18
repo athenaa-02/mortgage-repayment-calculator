@@ -78,11 +78,14 @@ function calculateMortgage(e: Event) {
   }
   totalPayment = monthlyPayment * totalNumPayments;
 
-  console.log(pounds.format(monthlyPayment));
-  console.log(pounds.format(totalPayment));
+
 
   primaryChild.classList.add("hidden");
   resultHtml.classList.remove("hidden");
+
+  monthlySum.textContent = pounds.format(monthlyPayment)
+  totalSum.textContent = pounds.format(totalPayment)
+
 }
 
 function clear() {
