@@ -85,9 +85,8 @@ main div.container .calculator .heading button.clear:hover {
 main div.container .calculator form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
-main div.container .calculator form .wrapper span,
+main div.container .calculator form .wrapper span.duration, main div.container .calculator form span.percent,
 main div.container .calculator form .currency {
   background-color: #e4f4fd;
   padding: 11.8px 16px;
@@ -197,6 +196,7 @@ main div.container .calculator form button.calc {
   color: #133041;
   font-weight: bold;
   font-size: 18px;
+  margin-top: 24px;
   cursor: pointer;
 }
 main div.container .calculator form button.calc:hover {
@@ -307,4 +307,13 @@ label:has(input[name=type]:checked) {
 
 .hidden {
   display: none !important;
+}
+
+.error_message {
+  color: #D73328;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+  visibility: hidden;
+  display: inline-block;
 }/*# sourceMappingURL=input.css.map */

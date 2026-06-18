@@ -12,6 +12,7 @@ $resultsBg: #0e2431;
 $font: "Plus Jakarta Sans", sans-serif;
 $paragraphColor: #9abed5;
 $opacityPColor: #9abed540;
+$errorColor: #D73328;
 
 * {
   margin: 0;
@@ -96,9 +97,9 @@ main {
       form {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        // gap: 24px;
 
-        .wrapper span,
+        .wrapper span.duration,span.percent,
         .currency {
           @include spanBox;
         }
@@ -215,6 +216,7 @@ main {
           color: $darkBlue;
           font-weight: bold;
           font-size: 18px;
+          margin-top: 24px;
           cursor: pointer;
 
           &:hover {
@@ -332,4 +334,16 @@ main {
 
 .hidden{
   display: none !important
+}
+
+
+.error_message{
+color: $errorColor;
+font-size: 14px;
+font-weight: 500;
+margin-top: 12px;
+// height: ;
+visibility: hidden;
+display: inline-block;
+
 }
