@@ -22,10 +22,10 @@ interface MortgageInputs {
   mortgageType: "repayment" | "interest";
 }
 
- const pounds = new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP",
-  });
+const pounds = new Intl.NumberFormat("en-GB", {
+  style: "currency",
+  currency: "GBP",
+});
 
 function getFormData(): MortgageInputs | null {
   const mortgage = parseFloat(mortgageInput.value);
@@ -35,7 +35,6 @@ function getFormData(): MortgageInputs | null {
     document.querySelector('[name="type"]:checked') as HTMLInputElement
   ).id;
   //   console.log(type);
-
 
   if (isNaN(mortgage) || isNaN(term) || isNaN(rate)) {
     return null;
@@ -74,20 +73,23 @@ function calculateMortgage(e: Event) {
       mortgageAmount *
       ((monthlyRate * (1 + monthlyRate) ** totalNumPayments) /
         ((1 + monthlyRate) ** totalNumPayments - 1));
-
-
-    
-  }else{
-    monthlyPayment = (mortgageAmount * (mortgageRate / 100) ) / 12
-
+  } else {
+    monthlyPayment = (mortgageAmount * (mortgageRate / 100)) / 12;
   }
-  totalPayment = monthlyPayment * totalNumPayments
+  totalPayment = monthlyPayment * totalNumPayments;
 
-  console.log(pounds.format(monthlyPayment))
-  console.log(pounds.format(totalPayment))
+  console.log(pounds.format(monthlyPayment));
+  console.log(pounds.format(totalPayment));
 
-  primaryChild.classList.add('hidden')
-resultHtml.classList.remove('hidden')
+  primaryChild.classList.add("hidden");
+  resultHtml.classList.remove("hidden");
+}
+
+function clear() {
+  form.reset()
+  primaryChild.classList.remove("hidden");
+  resultHtml.classList.add("hidden");
 }
 
 form.addEventListener("submit", calculateMortgage);
+clearBtn.addEventListener("click", clear);
