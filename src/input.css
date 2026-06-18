@@ -301,4 +301,9 @@ main div.container .output .results div.result_output span#total_sum {
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+}
+
+label:has(input[name=type]:checked) {
+  background-color: #f9fae0;
+  border-color: #d8db2f !important;
 }/*# sourceMappingURL=input.css.map */
