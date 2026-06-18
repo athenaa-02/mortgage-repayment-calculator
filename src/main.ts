@@ -76,8 +76,12 @@ function calculateMortgage(e: Event) {
         ((1 + monthlyRate) ** totalNumPayments - 1));
 
 
-    totalPayment = monthlyPayment * totalNumPayments
+    
+  }else{
+    monthlyPayment = (mortgageAmount * (mortgageRate / 100) ) / 12
+
   }
+  totalPayment = monthlyPayment * totalNumPayments
 
   console.log(pounds.format(monthlyPayment))
   console.log(pounds.format(totalPayment))
