@@ -134,30 +134,47 @@ inputs.forEach((input) => {
   });
 });
 
-// let focusedInput
 
 inputs.forEach((input) => {
   input.addEventListener("focus", (e) => {
-    // focusedInput = e.target
     input.parentElement?.classList.add("active");
     
   });
 });
 
-document.addEventListener("click", (e: Event) => {
-  const clickedEle: any = e.target;
+inputs.forEach((input) => {
+  input.addEventListener("blur", (e) => {
+    input.parentElement?.classList.remove("active");
+    
+  });
+});
+
+
+// document.addEventListener("click", (e: Event) => {
+//   const clickedEle: any = e.target;
   // console.log(clickedEle)
 
   
 
-  if (clickedEle?.classList.contains("main_inputs")) {
-    return;
-  } else {
-    inputs.forEach((input) => {
-      input.parentElement?.classList.remove("active");
-    });
-  }
-});
+  // if (clickedEle?.classList.contains("main_inputs")) {
+  //   return;
+  // } else {
+  //   inputs.forEach((input) => {
+  //     input.parentElement?.classList.remove("active");
+  //   });
+  // }
+// let prevActive:any 
+//   inputs.forEach((input) =>{
+    
+//     if(input.parentElement?.classList.contains('active')){
+// prevActive = input
+
+//     }
+//     if (!(clickedEle?.classList.contains("main_inputs")) || prevActive === clickedEle) {
+//    console.log('sdf')
+//   }
+//   })
+// });
 
 form.addEventListener("submit", calculateMortgage);
 clearBtn.addEventListener("click", clear);
