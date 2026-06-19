@@ -136,14 +136,14 @@ inputs.forEach((input) => {
 
 
 inputs.forEach((input) => {
-  input.addEventListener("focus", (e) => {
+  input.addEventListener("focus", () => {
     input.parentElement?.classList.add("active");
     
   });
 });
 
 inputs.forEach((input) => {
-  input.addEventListener("blur", (e) => {
+  input.addEventListener("blur", () => {
     input.parentElement?.classList.remove("active");
     
   });
