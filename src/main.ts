@@ -14,6 +14,8 @@ const totalSum = document.getElementById("total_sum") as HTMLSpanElement;
 const primaryChild = document.querySelector(".child") as HTMLDivElement;
 const resultHtml = document.querySelector(".results") as HTMLDivElement;
 
+const currencyWrapper = document.querySelector('.currency_wrapper') as HTMLDivElement
+
 const inputs = document.querySelectorAll(
   ".main_inputs",
 ) as NodeListOf<HTMLInputElement>;
@@ -76,6 +78,8 @@ function getFormData(): MortgageInputs | null {
 let monthlyPayment: number = 0;
 let totalPayment: number = 0;
 
+
+
 function calculateMortgage(e: Event) {
   e.preventDefault();
 
@@ -103,9 +107,14 @@ function calculateMortgage(e: Event) {
   primaryChild.classList.add("hidden");
   resultHtml.classList.remove("hidden");
 
-  monthlySum.textContent = pounds.format(monthlyPayment);
+    monthlySum.textContent = pounds.format(monthlyPayment);
   totalSum.textContent = pounds.format(totalPayment);
+
 }
+
+
+
+
 
 function clear() {
   form.reset();
@@ -150,35 +159,29 @@ inputs.forEach((input) => {
 });
 
 
-// document.addEventListener("click", (e: Event) => {
-//   const clickedEle: any = e.target;
-  // console.log(clickedEle)
-
-  
-
-  // if (clickedEle?.classList.contains("main_inputs")) {
-  //   return;
-  // } else {
-  //   inputs.forEach((input) => {
-  //     input.parentElement?.classList.remove("active");
-  //   });
-  // }
-// let prevActive:any 
-//   inputs.forEach((input) =>{
-    
-//     if(input.parentElement?.classList.contains('active')){
-// prevActive = input
-
-//     }
-//     if (!(clickedEle?.classList.contains("main_inputs")) || prevActive === clickedEle) {
-//    console.log('sdf')
-//   }
-//   })
-// });
-
 form.addEventListener("submit", calculateMortgage);
 clearBtn.addEventListener("click", clear);
 
 // function reset(input:HTMLInputElement):void{
 //  input.parentElement?.classList.remove("error");
 // }
+
+
+
+let format
+
+currencyWrapper.addEventListener('click', (e:Event) =>{
+let clicked:any = e.target 
+const value = clicked.id
+
+
+if(value === 'USD'){
+format = 'en-US'
+}
+if(value === 'GEL'){
+format = 'ka-GE'
+}
+if(value === 'GBP'){
+format = 'en-GB'
+}
+})

@@ -99,6 +99,7 @@ main div.container .calculator form .input_wrapper {
   border: 1px solid #6b94a8;
   border-radius: 2.5px;
   transition: all 400ms;
+  position: relative;
 }
 main div.container .calculator form .input_wrapper:hover {
   border: 1px solid #d8db2f;
@@ -340,4 +341,17 @@ label:has(input[name=type]:checked) {
 
 .error ~ span.error_message {
   visibility: visible;
+}
+
+.currency_wrapper {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.cur {
+  border: 0.5px solid #6b94a8;
 }/*# sourceMappingURL=input.css.map */

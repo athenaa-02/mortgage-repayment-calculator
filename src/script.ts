@@ -188,3 +188,4 @@ completeOrder(1);
 console.log("Menu:", menu);
 console.log("Cash in register:", cashInRegister);
 console.log("Order queue:", orderQueue);
+
