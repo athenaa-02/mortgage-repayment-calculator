@@ -12,7 +12,7 @@ $resultsBg: #0e2431;
 $font: "Plus Jakarta Sans", sans-serif;
 $paragraphColor: #9abed5;
 $opacityPColor: #9abed540;
-$errorColor: #D73328;
+$errorColor: #d73328;
 
 * {
   margin: 0;
@@ -99,7 +99,8 @@ main {
         flex-direction: column;
         // gap: 24px;
 
-        .wrapper span.duration,span.percent,
+        .wrapper span.duration,
+        span.percent,
         .currency {
           @include spanBox;
         }
@@ -107,9 +108,10 @@ main {
         .input_wrapper {
           border: 1px solid $spanBox;
           border-radius: 2.5px;
+          transition: all 400ms;
 
           &:hover {
-            border: 1px solid $darkBlue;
+            border: 1px solid $green;
           }
         }
 
@@ -140,7 +142,6 @@ main {
             font-weight: bold;
 
             &:focus {
-              border: 1px solid $green;
               outline: none;
             }
           }
@@ -260,7 +261,6 @@ main {
       }
       //result box
       .results {
-        
         div.text {
           margin-bottom: 24px;
 
@@ -327,38 +327,49 @@ main {
   }
 }
 
- label:has(input[name="type"]:checked) {
+label:has(input[name="type"]:checked) {
   background-color: $lightYellow;
   border-color: $green !important;
 }
 
-.hidden{
-  display: none !important
+.hidden {
+  display: none !important;
 }
 
 
-.error_message{
-color: $errorColor;
-font-size: 14px;
-font-weight: 500;
-margin-top: 8px;
-// height: ;
-visibility: hidden;
-display: inline-block;
-margin-bottom: 10px;
+.active {
+  border: 1px solid $green !important;
+}
 
+.active span {
+  background-color: $green !important;
+  color: $darkBlue !important;
 }
 
 
-.error span{
+
+.error_message {
+  color: $errorColor;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  // height: ;
+  visibility: hidden;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.error span {
   background-color: $errorColor !important;
-  color:$white !important;
+  color: $white !important;
 }
 
-.error input[type="text"]{
-border: 1px solid $errorColor !important;
+.error input[type="text"] {
+  border: 1px solid $errorColor !important;
 }
 
-.error ~ span.error_message{
+.error ~ span.error_message {
   visibility: visible;
 }
+
+

@@ -86,7 +86,8 @@ main div.container .calculator form {
   display: flex;
   flex-direction: column;
 }
-main div.container .calculator form .wrapper span.duration, main div.container .calculator form span.percent,
+main div.container .calculator form .wrapper span.duration,
+main div.container .calculator form span.percent,
 main div.container .calculator form .currency {
   background-color: #e4f4fd;
   padding: 11.8px 16px;
@@ -97,9 +98,10 @@ main div.container .calculator form .currency {
 main div.container .calculator form .input_wrapper {
   border: 1px solid #6b94a8;
   border-radius: 2.5px;
+  transition: all 400ms;
 }
 main div.container .calculator form .input_wrapper:hover {
-  border: 1px solid #133041;
+  border: 1px solid #d8db2f;
 }
 main div.container .calculator form .wrapper {
   display: flex;
@@ -127,7 +129,6 @@ main div.container .calculator form .input_wrapper input {
   font-weight: bold;
 }
 main div.container .calculator form .input_wrapper input:focus {
-  border: 1px solid #d8db2f;
   outline: none;
 }
 main div.container .calculator form .mortgage_container label,
@@ -309,8 +310,17 @@ label:has(input[name=type]:checked) {
   display: none !important;
 }
 
+.active {
+  border: 1px solid #d8db2f !important;
+}
+
+.active span {
+  background-color: #d8db2f !important;
+  color: #133041 !important;
+}
+
 .error_message {
-  color: #D73328;
+  color: #d73328;
   font-size: 14px;
   font-weight: 500;
   margin-top: 8px;
@@ -320,12 +330,12 @@ label:has(input[name=type]:checked) {
 }
 
 .error span {
-  background-color: #D73328 !important;
+  background-color: #d73328 !important;
   color: #fff !important;
 }
 
 .error input[type=text] {
-  border: 1px solid #D73328 !important;
+  border: 1px solid #d73328 !important;
 }
 
 .error ~ span.error_message {

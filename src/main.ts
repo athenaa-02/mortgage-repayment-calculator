@@ -14,6 +14,10 @@ const totalSum = document.getElementById("total_sum") as HTMLSpanElement;
 const primaryChild = document.querySelector(".child") as HTMLDivElement;
 const resultHtml = document.querySelector(".results") as HTMLDivElement;
 
+const inputs = document.querySelectorAll(
+  ".main_inputs",
+) as NodeListOf<HTMLInputElement>;
+
 interface MortgageInputs {
   mortgageAmount: number;
   mortgageTerm: number;
@@ -35,24 +39,28 @@ function getFormData(): MortgageInputs | null {
   ).id;
   //   console.log(type);
 
+  mortgageInput.parentElement?.classList.remove("error");
+  termInput.parentElement?.classList.remove("error");
+  rateInput.parentElement?.classList.remove("error");
+
   let hasError = false;
 
   if (isNaN(mortgage)) {
     hasError = true;
-    mortgageInput.parentElement?.classList.add('error')
+    mortgageInput.parentElement?.classList.add("error");
   }
   if (isNaN(term)) {
     hasError = true;
-    termInput.parentElement?.classList.add('error')
+    termInput.parentElement?.classList.add("error");
   }
   if (isNaN(rate)) {
     hasError = true;
-    rateInput.parentElement?.classList.add('error')
+    rateInput.parentElement?.classList.add("error");
   }
 
-if(hasError === true){
-  return null
-}
+  if (hasError === true) {
+    return null;
+  }
 
   const formData = {
     mortgageAmount: mortgage,
@@ -103,7 +111,57 @@ function clear() {
   form.reset();
   primaryChild.classList.remove("hidden");
   resultHtml.classList.add("hidden");
+
+  //  reset(termInput)
+  //  reset(mortgageInput)
+  //  reset(rateInput)
+  // let arr =   [termInput, mortgageInput, rateInput]
+
+  //   arr.forEach(input => {
+  //     input.parentElement?.classList.remove("error");
+  //   });
+
+  inputs.forEach((i) => {
+    i.parentElement?.classList.remove("error");
+  });
 }
+
+inputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    setTimeout(() => {
+      input.parentElement?.classList.remove("error");
+    }, 300);
+  });
+});
+
+// let focusedInput
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", (e) => {
+    // focusedInput = e.target
+    input.parentElement?.classList.add("active");
+    
+  });
+});
+
+document.addEventListener("click", (e: Event) => {
+  const clickedEle: any = e.target;
+  // console.log(clickedEle)
+
+  
+
+  if (clickedEle?.classList.contains("main_inputs")) {
+    return;
+  } else {
+    inputs.forEach((input) => {
+      input.parentElement?.classList.remove("active");
+    });
+  }
+});
 
 form.addEventListener("submit", calculateMortgage);
 clearBtn.addEventListener("click", clear);
+
+// function reset(input:HTMLInputElement):void{
+//  input.parentElement?.classList.remove("error");
+// }
