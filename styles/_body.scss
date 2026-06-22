@@ -1,0 +1,182 @@
+@use "../styles/variables" as *;
+
+
+
+main {
+  background-color: $background;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 0;
+  }
+  @media screen and (min-width: 1100px) {
+    height: 100vh;
+    padding: 0;
+    align-items: center;
+  }
+  div.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 688px;
+
+    @media screen and (min-width: 768px) {
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    @media screen and (min-width: 1100px) {
+      flex-direction: row;
+      width: 1008px;
+      max-width: fit-content;
+      background-color: $white;
+    }
+
+    .calculator {
+      background-color: $white;
+      padding: 32px 24px;
+
+      @media screen and (min-width: 768px) {
+        padding: 40px;
+      }
+      @media screen and (min-width: 1100px) {
+        width: 50%;
+      }
+
+      .heading {
+        margin-bottom: 24px;
+        @media screen and (min-width: 500px) {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 40px;
+        }
+        h1 {
+          font-size: 24px;
+          color: $darkBlue;
+          margin-bottom: 8px;
+        }
+        button.clear {
+          color: $thinTextColor;
+          border: none;
+          background-color: $white;
+          text-decoration: underline;
+          cursor: pointer;
+
+          &:hover {
+            color: $darkBlue;
+          }
+        }
+      }
+    }
+    .output {
+      background-color: $darkBlue;
+      padding: 32px 24px;
+
+      @media screen and (min-width: 1100px) {
+        width: 50%;
+        border-bottom-left-radius: 80px;
+        display: flex;
+        justify-content: center;
+      }
+
+      @media screen and (min-width: 768px) {
+        padding: 40px;
+      }
+      //primary box
+      .primary {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .child {
+          text-align: center;
+          display: block;
+
+          h2 {
+            color: white;
+            margin: 16px 0;
+          }
+          p.complete {
+            color: $paragraphColor;
+          }
+        }
+      }
+      //result box
+      .results {
+        div.text {
+          margin-bottom: 24px;
+
+          @media screen and (min-width: 1100px) {
+            margin-bottom: 40px;
+          }
+          h2 {
+            color: $white;
+            margin-bottom: 16px;
+          }
+          p.result_text {
+            color: $paragraphColor;
+            line-height: 150%;
+          }
+        }
+        div.result_output {
+          background-color: $resultsBg;
+          border-radius: 8px;
+          border-top: 4px solid $green;
+          padding: 24px 16px;
+
+          @media screen and (min-width: 768px) {
+            padding: 40px;
+          }
+          @media screen and (min-width: 1100px) {
+            padding: 32px;
+          }
+
+          h3 {
+            color: $paragraphColor;
+            font-weight: 500;
+            margin-bottom: 8px;
+          }
+
+          .monthly_repayments {
+            border-bottom: 1px solid $opacityPColor;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+
+            @media screen and (min-width: 768px) {
+              padding-bottom: 32px;
+              margin-bottom: 32px;
+            }
+
+            span#monthly_sum {
+              color: $green;
+              font-size: 40px;
+              font-weight: bold;
+
+              @media screen and (min-width: 768px) {
+                font-size: 56px;
+              }
+            }
+          }
+
+          span#total_sum {
+            color: $white;
+            font-size: 24px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.currency_wrapper {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.cur {
+  border: 0.5px solid $spanBox;
+}

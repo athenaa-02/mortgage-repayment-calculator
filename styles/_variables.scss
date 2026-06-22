@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+$green: #d8db2f;
+$opacityGreen: #d7da2f80;
+$background: #e4f4fd;
+$white: #fff;
+$thinTextColor: #4e6e7e;
+$spanBox: #6b94a8;
+$lightYellow: #f9fae0;
+$darkBlue: #133041;
+$resultsBg: #0e2431;
+$font: "Plus Jakarta Sans", sans-serif;
+$paragraphColor: #9abed5;
+$opacityPColor: #9abed540;
+$errorColor: #d73328;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
+
+@mixin spanBox {
+  background-color: $background;
+  padding: 11.8px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: $thinTextColor;
+}

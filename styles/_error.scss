@@ -1,0 +1,27 @@
+@use "../styles/variables" as *;
+
+
+
+.error_message {
+  color: $errorColor;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  // height: ;
+  visibility: hidden;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.error span {
+  background-color: $errorColor !important;
+  color: $white !important;
+}
+
+.error input[type="text"] {
+  border: 1px solid $errorColor !important;
+}
+
+.error ~ span.error_message {
+  visibility: visible;
+}

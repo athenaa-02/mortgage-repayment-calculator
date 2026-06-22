@@ -82,128 +82,6 @@ main div.container .calculator .heading button.clear {
 main div.container .calculator .heading button.clear:hover {
   color: #133041;
 }
-main div.container .calculator form {
-  display: flex;
-  flex-direction: column;
-}
-main div.container .calculator form .wrapper span.duration,
-main div.container .calculator form span.percent,
-main div.container .calculator form .currency {
-  background-color: #e4f4fd;
-  padding: 11.8px 16px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #4e6e7e;
-}
-main div.container .calculator form .input_wrapper {
-  border: 1px solid #6b94a8;
-  border-radius: 2.5px;
-  transition: all 400ms;
-  position: relative;
-}
-main div.container .calculator form .input_wrapper:hover {
-  border: 1px solid #d8db2f;
-}
-main div.container .calculator form .wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-@media screen and (min-width: 768px) {
-  main div.container .calculator form .wrapper {
-    flex-direction: row;
-  }
-}
-main div.container .calculator form .rate_container,
-main div.container .calculator form .term_container {
-  width: 100%;
-}
-main div.container .calculator form .input_wrapper {
-  display: flex;
-}
-main div.container .calculator form .input_wrapper input {
-  height: 48px;
-  border: none;
-  width: 100%;
-  padding-left: 16px;
-  color: #133041;
-  font-weight: bold;
-}
-main div.container .calculator form .input_wrapper input:focus {
-  outline: none;
-}
-main div.container .calculator form .mortgage_container label,
-main div.container .calculator form .wrapper label,
-main div.container .calculator form #morgage_type_text {
-  color: #4e6e7e;
-  margin-bottom: 12px;
-  display: inline-block;
-}
-main div.container .calculator form .morgage_type .types {
-  display: flex;
-}
-main div.container .calculator form .morgage_type label {
-  width: 100%;
-  display: flex;
-  padding: 12.5px 16px;
-  border: 1px solid #6b94a8;
-  border-radius: 4px;
-  font-weight: bold;
-  color: #133041;
-}
-main div.container .calculator form .morgage_type label:hover {
-  border: 1px solid #d8db2f;
-}
-main div.container .calculator form .morgage_type #interest_label {
-  margin-top: 12px;
-}
-main div.container .calculator form .morgage_type input[name=type] {
-  margin-right: 16px;
-  width: 19.5px;
-  height: 19.5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-main div.container .calculator form .morgage_type input[name=type]:checked {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  width: 19.5px;
-  height: 19.5px;
-  border: 1px solid #d8db2f;
-  border-radius: 50%;
-}
-main div.container .calculator form .morgage_type input[name=type]::before {
-  content: "";
-  height: 10px;
-  width: 10px;
-  background-color: #d8db2f;
-  border-radius: 50%;
-  display: none;
-}
-main div.container .calculator form .morgage_type input[name=type]:checked::before {
-  display: inline-block;
-}
-main div.container .calculator form button.calc {
-  width: 327px;
-  height: 56px;
-  background-color: #d8db2f;
-  border-radius: 999px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15.75px;
-  color: #133041;
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 24px;
-  cursor: pointer;
-}
-main div.container .calculator form button.calc:hover {
-  background-color: rgba(215, 218, 47, 0.5019607843);
-}
 main div.container .output {
   background-color: #133041;
   padding: 32px 24px;
@@ -302,6 +180,142 @@ main div.container .output .results div.result_output span#total_sum {
   font-weight: bold;
 }
 
+.currency_wrapper {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.cur {
+  border: 0.5px solid #6b94a8;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+form .wrapper span.duration,
+form span.percent,
+form .currency {
+  background-color: #e4f4fd;
+  padding: 11.8px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4e6e7e;
+}
+form .input_wrapper {
+  border: 1px solid #6b94a8;
+  border-radius: 2.5px;
+  transition: all 400ms;
+  position: relative;
+}
+form .input_wrapper:hover {
+  border: 1px solid #d8db2f;
+}
+form .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media screen and (min-width: 768px) {
+  form .wrapper {
+    flex-direction: row;
+  }
+}
+form .rate_container,
+form .term_container {
+  width: 100%;
+}
+form .input_wrapper {
+  display: flex;
+}
+form .input_wrapper input {
+  height: 48px;
+  border: none;
+  width: 100%;
+  padding-left: 16px;
+  color: #133041;
+  font-weight: bold;
+}
+form .input_wrapper input:focus {
+  outline: none;
+}
+form .mortgage_container label,
+form .wrapper label,
+form #morgage_type_text {
+  color: #4e6e7e;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+form .morgage_type .types {
+  display: flex;
+}
+form .morgage_type label {
+  width: 100%;
+  display: flex;
+  padding: 12.5px 16px;
+  border: 1px solid #6b94a8;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #133041;
+}
+form .morgage_type label:hover {
+  border: 1px solid #d8db2f;
+}
+form .morgage_type #interest_label {
+  margin-top: 12px;
+}
+form .morgage_type input[name=type] {
+  margin-right: 16px;
+  width: 19.5px;
+  height: 19.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form .morgage_type input[name=type]:checked {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 19.5px;
+  height: 19.5px;
+  border: 1px solid #d8db2f;
+  border-radius: 50%;
+}
+form .morgage_type input[name=type]::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  background-color: #d8db2f;
+  border-radius: 50%;
+  display: none;
+}
+form .morgage_type input[name=type]:checked::before {
+  display: inline-block;
+}
+form button.calc {
+  width: 327px;
+  height: 56px;
+  background-color: #d8db2f;
+  border-radius: 999px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15.75px;
+  color: #133041;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+form button.calc:hover {
+  background-color: rgba(215, 218, 47, 0.5019607843);
+}
+
 label:has(input[name=type]:checked) {
   background-color: #f9fae0;
   border-color: #d8db2f !important;
@@ -341,17 +355,4 @@ label:has(input[name=type]:checked) {
 
 .error ~ span.error_message {
   visibility: visible;
-}
-
-.currency_wrapper {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 10;
-}
-
-.cur {
-  border: 0.5px solid #6b94a8;
 }/*# sourceMappingURL=input.css.map */
