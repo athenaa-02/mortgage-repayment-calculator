@@ -14,7 +14,9 @@ const totalSum = document.getElementById("total_sum") as HTMLSpanElement;
 const primaryChild = document.querySelector(".child") as HTMLDivElement;
 const resultHtml = document.querySelector(".results") as HTMLDivElement;
 
-const currencyWrapper = document.querySelector('.currency_wrapper') as HTMLDivElement
+const currencyWrapper = document.querySelector(
+  ".currency_wrapper",
+) as HTMLDivElement;
 
 const inputs = document.querySelectorAll(
   ".main_inputs",
@@ -78,8 +80,6 @@ function getFormData(): MortgageInputs | null {
 let monthlyPayment: number = 0;
 let totalPayment: number = 0;
 
-
-
 function calculateMortgage(e: Event) {
   e.preventDefault();
 
@@ -107,14 +107,9 @@ function calculateMortgage(e: Event) {
   primaryChild.classList.add("hidden");
   resultHtml.classList.remove("hidden");
 
-    monthlySum.textContent = pounds.format(monthlyPayment);
+  monthlySum.textContent = pounds.format(monthlyPayment);
   totalSum.textContent = pounds.format(totalPayment);
-
 }
-
-
-
-
 
 function clear() {
   form.reset();
@@ -143,21 +138,17 @@ inputs.forEach((input) => {
   });
 });
 
-
 inputs.forEach((input) => {
   input.addEventListener("focus", () => {
     input.parentElement?.classList.add("active");
-    
   });
 });
 
 inputs.forEach((input) => {
   input.addEventListener("blur", () => {
     input.parentElement?.classList.remove("active");
-    
   });
 });
-
 
 form.addEventListener("submit", calculateMortgage);
 clearBtn.addEventListener("click", clear);
@@ -166,22 +157,20 @@ clearBtn.addEventListener("click", clear);
 //  input.parentElement?.classList.remove("error");
 // }
 
+let format = "en-GB";
 
+currencyWrapper.addEventListener("click", (e: Event) => {
+  let clicked: any = e.target;
+  const value = clicked.id;
 
-let format
-
-currencyWrapper.addEventListener('click', (e:Event) =>{
-let clicked:any = e.target 
-const value = clicked.id
-
-
-if(value === 'USD'){
-format = 'en-US'
-}
-if(value === 'GEL'){
-format = 'ka-GE'
-}
-if(value === 'GBP'){
-format = 'en-GB'
-}
-})
+  console.log(format);
+  if (value === "USD") {
+    format = "en-US";
+  }
+  if (value === "GEL") {
+    format = "ka-GE";
+  }
+  if (value === "GBP") {
+    format = "en-GB";
+  }
+});
